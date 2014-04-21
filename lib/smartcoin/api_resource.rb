@@ -2,8 +2,22 @@ module SmartCoin
   module ApiResource
     BASE_URL = 'https://api.smartcoin.com.br'
 
+    def url_encode(key)
+      URI.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    end
+
+    def encode(params)
+      params.map { |k,v| "#{k}=#{url_encode(v)}" }.join('&')
+    end
+
     def api_request(url, method, access_keys, params=nil)
       url = "#{BASE_URL}#{url}"
+      if method == :get && params
+        params_encoded = encode(params)
+        url = "#{url}?#{params_encoded}"
+        params = nil
+      end
+      
       access_keys = access_keys.split(':')
       api_key = access_keys[0]
       api_secret = access_keys[1]

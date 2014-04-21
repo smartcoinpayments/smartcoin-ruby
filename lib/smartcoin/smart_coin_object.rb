@@ -36,6 +36,8 @@ module SmartCoin
         params.each do |key, value|
           if value.class == Hash
             @values[key] = SmartCoin::Card.create_from(value)
+          elsif value.class == Array
+            @values[key] = value.map{ |v| SmartCoin::Refund.create_from(v) }
           else
             @values[key] = value
           end

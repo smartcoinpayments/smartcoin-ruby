@@ -1,8 +1,8 @@
 module SmartCoin
-  class Token < SmartCoinObject
+  class Charge < SmartCoinObject
     def self.create(params, access_keys)
       base_url = 'https://api.smartcoin.com.br'
-      url = "#{base_url}/v1/tokens"
+      url = "#{base_url}/v1/charges"
       method = :post
       response = api_request(url,method,access_keys,params)
       create_from_json(response)

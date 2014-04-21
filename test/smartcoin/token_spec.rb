@@ -12,7 +12,7 @@ describe SmartCoin::Token do
                     cvc: 111,
                     name: 'Arthur Granado'
                   }
-    response = SmartCoin::Token.request(url, method, access_keys, params)
+    response = SmartCoin::Token.api_request(url, method, access_keys, params)
     expect(response['id']).to match(/tok_(.*)/)
     expect(response['object']).to eq('token')
     expect(response['card']['last4']).to eq('4242')

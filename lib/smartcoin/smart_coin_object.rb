@@ -6,18 +6,21 @@ module SmartCoin
       class << self; self; end
     end
 
-    def self.create_from_json(json)
-      token = self.new
-      token.create_fields(json)
-      token.set_properties(json)
-
-      token
+    def self.create_from(params)
+      obj = self.new
+      obj.reflesh_object(params)
     end
 
-    def create_fields(json)
+    def reflesh_object(params)
+      create_fields(params)
+      set_properties(params)
+      self
+    end
+
+    def create_fields(params)
       instance_eval do
         metaclass.instance_eval do
-          json.keys.each do |key|
+          params.keys.each do |key|
             define_method(key) { @values[key] }
 
             define_method("#{key}=") do |value|
@@ -28,11 +31,11 @@ module SmartCoin
       end
     end
 
-    def set_properties(json)
+    def set_properties(params)
       instance_eval do
-        json.each do |key, value|
+        params.each do |key, value|
           if value.class == Hash
-            @values[key] = SmartCoin::Card.create_from_json(value)
+            @values[key] = SmartCoin::Card.create_from(value)
           else
             @values[key] = value
           end

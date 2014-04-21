@@ -2,7 +2,7 @@ module SmartCoin
   module ApiResource
     BASE_URL = 'https://api.smartcoin.com.br'
 
-    def api_request(url, method, access_keys, params)
+    def api_request(url, method, access_keys, params=nil)
       url = "#{BASE_URL}#{url}"
       access_keys = access_keys.split(':')
       api_key = access_keys[0]

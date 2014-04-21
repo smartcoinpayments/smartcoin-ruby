@@ -5,7 +5,7 @@ module SmartCoin
         url = get_url
         method = :post
         response = api_request(url,method,access_keys,params)
-        create_from_json(response)
+        create_from(response)
       end
 
       def self.included(base)

@@ -21,7 +21,7 @@ describe SmartCoin::Card do
       address_country: nil
     }
     
-    card = SmartCoin::Card.create_from_json(card_json)
+    card = SmartCoin::Card.create_from(card_json)
     expect(card.id).to eq(card_json[:id])
     expect(card.object).to eq(card_json[:object])
     expect(card.last4).to eq(card_json[:last4])

@@ -28,7 +28,7 @@ describe SmartCoin::SmartCoinObject do
        address_country: nil}
     }
 
-    token = SmartCoin::SmartCoinObject.create_from_json(token_json)
+    token = SmartCoin::SmartCoinObject.create_from(token_json)
     expect(token.id).to eq(token_json[:id])
     expect(token.object).to eq(token_json[:object])
     expect(token.card.id).to eq(token_json[:card][:id])

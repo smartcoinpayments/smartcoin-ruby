@@ -5,7 +5,7 @@ describe SmartCoin::Token do
     base_url = 'https://api.smartcoin.com.br'
     url = "#{base_url}/v1/tokens"
     method = :post
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_3ac0794848c339:'
     params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,
@@ -22,7 +22,7 @@ describe SmartCoin::Token do
   end
 
   it 'should call API to create a Token' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_3ac0794848c339:'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,

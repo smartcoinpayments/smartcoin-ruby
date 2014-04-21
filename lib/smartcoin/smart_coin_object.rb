@@ -40,6 +40,14 @@ module SmartCoin
       end
     end
 
+    def self.get_url
+      "/v1/#{CGI.escape(class_name.downcase)}s"
+    end
+
+    def self.class_name
+      self.name.split('::')[-1]
+    end
+
     def initialize()
       @values = {}
     end

@@ -11,6 +11,7 @@ require "smartcoin/card"
 require "smartcoin/token"
 require "smartcoin/refund"
 require "smartcoin/charge"
+require "smartcoin/util"
 
 module SmartCoin
 

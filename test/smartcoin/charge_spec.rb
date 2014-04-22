@@ -155,5 +155,6 @@ describe SmartCoin::Charge do
     expect(charge_list.object).to eq('list')
     expect(charge_list.count).to eq(3)
     expect(charge_list.data).to have(3).items
+    expect(charge_list.data[0].class).to eq(SmartCoin::Charge)
   end
 end

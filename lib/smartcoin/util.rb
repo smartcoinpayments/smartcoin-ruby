@@ -8,7 +8,9 @@ module SmartCoin
     }
 
     def self.get_object_type(type)
-      OBJECT_TYPES[type]
+      object_type = SmartCoin::SmartCoinObject
+      object_type = OBJECT_TYPES[type] if OBJECT_TYPES[type]
+      object_type
     end
   end
 end

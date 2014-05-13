@@ -4,6 +4,7 @@ module SmartCoin
         'card' => SmartCoin::Card,
         'charge' => SmartCoin::Charge,
         'refund' => SmartCoin::Refund,
+        'fee' => SmartCoin::Fee,
         'Token' => SmartCoin::Token,
     }
 

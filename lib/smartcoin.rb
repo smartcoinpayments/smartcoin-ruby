@@ -10,6 +10,7 @@ require "smartcoin/api_operations/list"
 require "smartcoin/card"
 require "smartcoin/token"
 require "smartcoin/refund"
+require "smartcoin/fee"
 require "smartcoin/charge"
 require "smartcoin/util"
 

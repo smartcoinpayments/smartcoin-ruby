@@ -26,6 +26,7 @@ describe SmartCoin::Charge do
     expect(charge.card.type).to eq('Visa')
     expect(charge.fees).to have_at_least(2).items
     expect(charge.fees.first.type).to eq('SmartCoin fee: flat')
+    expect(charge.fees.first.class).to eq(SmartCoin::Fee)
   end
 
   it 'should retrieve a charge that has already created' do

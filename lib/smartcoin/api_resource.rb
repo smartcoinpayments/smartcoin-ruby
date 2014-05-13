@@ -31,8 +31,17 @@ module SmartCoin
             headers: { accept: :json,
                       content_type: :json }
           ).execute
-        rescue => e
-          e.response
+        rescue RestClient::ExceptionWithResponse => e
+          if rcode = e.http_code and rbody = e.http_body
+            rbody = JSON.parse(rbody)
+            rbody = Util.symbolize_names(rbody)
+
+            raise SmartCoinError.new(rcode, rbody, rbody[:error], rbody[:error][:message])
+          else
+            raise e
+          end
+        rescue RestClient::Exception => e
+          raise e
         end
       JSON.parse(response.to_str)
     end

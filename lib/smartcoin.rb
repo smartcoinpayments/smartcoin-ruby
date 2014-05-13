@@ -13,6 +13,7 @@ require "smartcoin/refund"
 require "smartcoin/fee"
 require "smartcoin/charge"
 require "smartcoin/util"
+require "smartcoin/errors/smart_coin_error"
 
 module SmartCoin
 

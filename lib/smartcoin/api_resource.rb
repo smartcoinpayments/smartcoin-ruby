@@ -1,6 +1,6 @@
 module SmartCoin
   module ApiResource
-    BASE_URL = 'https://api.smartcoin.com.br'
+    BASE_URL = 'https://devdotapi.smartcoin.com.br'
 
     def url_encode(key)
       URI.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))

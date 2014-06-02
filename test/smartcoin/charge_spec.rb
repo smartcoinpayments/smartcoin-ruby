@@ -3,11 +3,11 @@ require 'rspec'
 describe SmartCoin::Charge do
 
   it 'should create a charge' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_31242ce3126aaf:sk_test_96e251e1b27da3'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,
-                    cvc: 111,
+                    cvc: '111',
                     name: 'Arthur Granado'
                   }
     token = SmartCoin::Token.create(token_params, access_keys)
@@ -30,11 +30,11 @@ describe SmartCoin::Charge do
   end
 
   it 'should retrieve a charge that has already created' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_31242ce3126aaf:sk_test_96e251e1b27da3'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,
-                    cvc: 111,
+                    cvc: '111',
                     name: 'Arthur Granado'
                   }
     token = SmartCoin::Token.create(token_params, access_keys)
@@ -52,11 +52,11 @@ describe SmartCoin::Charge do
   end
 
   it 'should capture charge that has already created' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_31242ce3126aaf:sk_test_96e251e1b27da3'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,
-                    cvc: 111,
+                    cvc: '111',
                     name: 'Arthur Granado'
                   }
     token = SmartCoin::Token.create(token_params, access_keys)
@@ -74,11 +74,11 @@ describe SmartCoin::Charge do
   end
 
   it 'should partial capture charge that has already created' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_31242ce3126aaf:sk_test_96e251e1b27da3'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,
-                    cvc: 111,
+                    cvc: '111',
                     name: 'Arthur Granado'
                   }
     token = SmartCoin::Token.create(token_params, access_keys)
@@ -99,11 +99,11 @@ describe SmartCoin::Charge do
   end
 
   it 'should refund charge that has already created' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_31242ce3126aaf:sk_test_96e251e1b27da3'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,
-                    cvc: 111,
+                    cvc: '111',
                     name: 'Arthur Granado'
                   }
     token = SmartCoin::Token.create(token_params, access_keys)
@@ -124,11 +124,11 @@ describe SmartCoin::Charge do
   end
 
   it 'should partial refund charge that has already created' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_31242ce3126aaf:sk_test_96e251e1b27da3'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,
-                    cvc: 111,
+                    cvc: '111',
                     name: 'Arthur Granado'
                   }
     token = SmartCoin::Token.create(token_params, access_keys)
@@ -151,7 +151,7 @@ describe SmartCoin::Charge do
   end
 
   it 'should list charges that have already created' do
-    access_keys = 'pk_test_3ac0794848c339:sk_test_8bec997b7a0ea1'
+    access_keys = 'pk_test_31242ce3126aaf:sk_test_96e251e1b27da3'
 
     params = {count: 3}
     charge_list = SmartCoin::Charge.list_all(access_keys, params)

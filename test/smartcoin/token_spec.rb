@@ -3,7 +3,7 @@ require_relative '../rspec_helper'
 describe SmartCoin::Token do
 
   it 'should call API to create a Token' do
-    access_keys = 'pk_test_31242ce3126aaf:'
+    access_keys = 'pk_test_3ac0794848c339:'
     token_params = {number:  4242424242424242,
                     exp_month: 11,
                     exp_year: 2017,

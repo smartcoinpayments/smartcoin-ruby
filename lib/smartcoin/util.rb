@@ -5,6 +5,7 @@ module SmartCoin
         'charge' => SmartCoin::Charge,
         'refund' => SmartCoin::Refund,
         'fee' => SmartCoin::Fee,
+        'installment' => SmartCoin::Installment,
         'Token' => SmartCoin::Token,
     }
 

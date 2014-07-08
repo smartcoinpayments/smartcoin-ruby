@@ -1,10 +1,10 @@
 module SmartCoin
   module ApiOperations
     module Retrieve
-      def retrieve(charge_id, access_keys)
+      def retrieve(charge_id)
         url = get_url
         method = :get
-        response = api_request("#{url}/#{charge_id}",method,access_keys)
+        response = api_request("#{url}/#{charge_id}",method)
         create_from(response)
       end
 

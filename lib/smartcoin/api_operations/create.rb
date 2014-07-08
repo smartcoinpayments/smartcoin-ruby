@@ -1,10 +1,10 @@
 module SmartCoin
   module ApiOperations
     module Create
-      def create(params, access_keys)
+      def create(params)
         url = get_url
         method = :post
-        response = api_request(url,method,access_keys,params)
+        response = api_request(url,method,params)
         create_from(response)
       end
 

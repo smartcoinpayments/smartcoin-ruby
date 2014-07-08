@@ -10,7 +10,7 @@ module SmartCoin
       params.map { |k,v| "#{k}=#{url_encode(v)}" }.join('&')
     end
 
-    def api_request(url, method, access_keys, params=nil)
+    def api_request(url, method, params=nil)
       url = "#{BASE_URL}#{url}"
       if method == :get && params
         params_encoded = encode(params)
@@ -18,7 +18,7 @@ module SmartCoin
         params = nil
       end
 
-      access_keys = access_keys.split(':')
+      access_keys = SmartCoin.access_keys.split(':')
       api_key = access_keys[0]
       api_secret = access_keys[1]
         begin

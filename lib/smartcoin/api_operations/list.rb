@@ -1,10 +1,10 @@
 module SmartCoin
   module ApiOperations
     module List
-      def list_all(access_keys, params)
+      def list_all(params)
         url = get_url
         method = :get
-        response = api_request(url, method, access_keys, params)
+        response = api_request(url, method, params)
         create_from(response)
       end
 

@@ -4,6 +4,7 @@ describe SmartCoin do
 
   it 'should set api key' do
     SmartCoin.api_key('pk_test_1234')
+    SmartCoin.api_secret('')
     expect(SmartCoin.access_keys).to eq('pk_test_1234:')
   end
 

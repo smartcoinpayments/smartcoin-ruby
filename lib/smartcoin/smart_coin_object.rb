@@ -55,5 +55,31 @@ module SmartCoin
     def initialize()
       @values = {}
     end
+
+    def to_hash
+      @values.inject({}) do |result, (key,value)|
+        if value.is_a? Array
+          list = []
+          value.each do |obj|
+            list.push(obj.respond_to?(:to_hash) ? obj.to_hash : value)
+          end
+          result[key] = list
+        else if value.respond_to?(:to_hash)
+            result[key] = value.to_hash
+          else
+            result[key] =  value
+          end
+        end
+        result
+      end
+    end
+
+    def to_json(*a)
+      JSON.generate(@values)
+    end
+
+    def to_s
+      JSON.generate(@values)
+    end
   end
 end

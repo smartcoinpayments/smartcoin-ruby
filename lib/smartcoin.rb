@@ -17,5 +17,18 @@ require "smartcoin/util"
 require "smartcoin/errors/smart_coin_error"
 
 module SmartCoin
+  @@api_key = ''
+  @@api_secret = ''
 
+  def self.api_key(api_key)
+    @@api_key = api_key
+  end
+
+  def self.api_secret(api_secret)
+    @@api_secret = api_secret
+  end
+
+  def self.access_keys
+    "#{@@api_key}:#{@@api_secret}"
+  end
 end

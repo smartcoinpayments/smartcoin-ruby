@@ -1,4 +1,5 @@
 require "rest-client"
+require "json"
 
 require "smartcoin/version"
 require "smartcoin/smart_coin_object"

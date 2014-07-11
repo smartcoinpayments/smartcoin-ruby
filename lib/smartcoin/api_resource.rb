@@ -1,6 +1,7 @@
 module SmartCoin
   module ApiResource
     BASE_URL = 'https://api.smartcoin.com.br'
+    SSL_BUNDLE_PATH = File.dirname(__FILE__) + '/../data/ssl-bundle.crt'
 
     def url_encode(key)
       URI.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
@@ -29,7 +30,9 @@ module SmartCoin
             password: api_secret,
             payload: params,
             headers: { accept: :json,
-                      content_type: :json }
+                      content_type: :json },
+            verify_ssl: OpenSSL::SSL::VERIFY_PEER,
+            ssl_ca_file: SSL_BUNDLE_PATH
           ).execute
         rescue RestClient::ExceptionWithResponse => e
           if rcode = e.http_code and rbody = e.http_body

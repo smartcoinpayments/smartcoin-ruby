@@ -16,6 +16,7 @@ require "smartcoin/installment"
 require "smartcoin/charge"
 require "smartcoin/util"
 require "smartcoin/errors/smart_coin_error"
+require "smartcoin/shipping"
 
 module SmartCoin
   @@api_key = ''

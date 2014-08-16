@@ -34,6 +34,17 @@ describe SmartCoin::Charge do
     expect(charge.installments.first.class).to eq(SmartCoin::Installment)
   end
 
+  it 'should create a bank_slip charge types' do
+    charge_params = {amount: 1000, currency: 'brl', type: 'bank_slip'}
+    charge = SmartCoin::Charge.create(charge_params)
+    expect(charge.id).to match(/ch_(.*)/)
+    expect(charge.amount).to eq(charge_params[:amount])
+    expect(charge.paid).to be_false
+    expect(charge.card).to be_nil
+    expect(charge.bank_slip).to_not be_nil
+    expect(charge.bank_slip.link).to match(/https:\/\/api\.smartcoin\.com\.br\/v1\/charges\/ch_(.*)\/bank_slip\/test/)
+  end
+
   it 'should retrieve a charge that has already created' do
     token_params = {number:  4242424242424242,
                     exp_month: 11,

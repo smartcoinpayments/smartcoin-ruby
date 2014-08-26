@@ -28,7 +28,7 @@ describe SmartCoin::Charge do
     expect(charge.card.id).to match(/card_(.*)/)
     expect(charge.card.type).to eq('Visa')
     expect(charge.fees).to have_at_least(2).items
-    expect(charge.fees.first.type).to eq('SmartCoin fee: flat')
+    expect(charge.fees.first.type).to eq('Smartcoin fee: flat')
     expect(charge.fees.first.class).to eq(SmartCoin::Fee)
     expect(charge.installments).to have_at_least(1).item
     expect(charge.installments.first.class).to eq(SmartCoin::Installment)

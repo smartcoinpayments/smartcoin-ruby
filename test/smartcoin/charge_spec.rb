@@ -23,14 +23,14 @@ describe SmartCoin::Charge do
     charge = SmartCoin::Charge.create(charge_params)
     expect(charge.id).to match(/ch_(.*)/)
     expect(charge.amount).to eq(charge_params[:amount])
-    expect(charge.paid).to be_true
-    expect(charge.captured).to be_true
+    expect(charge.paid).to be_truthy
+    expect(charge.captured).to be_truthy
     expect(charge.card.id).to match(/card_(.*)/)
     expect(charge.card.type).to eq('Visa')
-    expect(charge.fees).to have_at_least(2).items
+    expect(charge.fees.size).to be >= 2
     expect(charge.fees.first.type).to eq('Smartcoin fee: flat')
     expect(charge.fees.first.class).to eq(SmartCoin::Fee)
-    expect(charge.installments).to have_at_least(1).item
+    expect(charge.installments.size).to be >= 1
     expect(charge.installments.first.class).to eq(SmartCoin::Installment)
   end
 
@@ -39,7 +39,7 @@ describe SmartCoin::Charge do
     charge = SmartCoin::Charge.create(charge_params)
     expect(charge.id).to match(/ch_(.*)/)
     expect(charge.amount).to eq(charge_params[:amount])
-    expect(charge.paid).to be_false
+    expect(charge.paid).to be_falsey
     expect(charge.card).to be_nil
     expect(charge.bank_slip).to_not be_nil
     expect(charge.bank_slip.link).to match(/https:\/\/api\.smartcoin\.com\.br\/v1\/charges\/ch_(.*)\/bank_slip\/test/)
@@ -82,9 +82,9 @@ describe SmartCoin::Charge do
     }
 
     charge_created = SmartCoin::Charge.create(charge_params)
-    expect(charge_created.captured).to be_false
+    expect(charge_created.captured).to be_falsey
     charge_created.capture()
-    expect(charge_created.captured).to be_true
+    expect(charge_created.captured).to be_truthy
   end
 
   it 'should partial capture charge that has already created' do
@@ -103,10 +103,10 @@ describe SmartCoin::Charge do
     }
 
     charge_created = SmartCoin::Charge.create(charge_params)
-    expect(charge_created.captured).to be_false
+    expect(charge_created.captured).to be_falsey
     amount_captured = 300
     charge_created.capture(amount_captured)
-    expect(charge_created.captured).to be_true
+    expect(charge_created.captured).to be_truthy
     expect(charge_created.amount).to eq(charge_params[:amount])
     expect(charge_created.amount_refunded).to eq(charge_params[:amount] - amount_captured)
   end
@@ -126,13 +126,13 @@ describe SmartCoin::Charge do
     }
 
     charge_created = SmartCoin::Charge.create(charge_params)
-    expect(charge_created.refunded).to be_false
+    expect(charge_created.refunded).to be_falsey
 
     charge_created.refund()
-    expect(charge_created.refunded).to be_true
+    expect(charge_created.refunded).to be_truthy
     expect(charge_created.amount).to eq(charge_params[:amount])
     expect(charge_created.amount_refunded).to eq(charge_params[:amount])
-    expect(charge_created.refunds).to have(1).item
+    expect(charge_created.refunds.size).to eq(1)
   end
 
   it 'should partial refund charge that has already created' do
@@ -150,14 +150,14 @@ describe SmartCoin::Charge do
     }
 
     charge_created = SmartCoin::Charge.create(charge_params)
-    expect(charge_created.refunded).to be_false
+    expect(charge_created.refunded).to be_falsey
 
     amount_refunded = 600
     charge_created.refund(amount_refunded)
-    expect(charge_created.refunded).to be_false
+    expect(charge_created.refunded).to be_falsey
     expect(charge_created.amount).to eq(charge_params[:amount])
     expect(charge_created.amount_refunded).to eq(amount_refunded)
-    expect(charge_created.refunds).to have(1).item
+    expect(charge_created.refunds.size).to eq(1)
     expect(charge_created.refunds[0].amount).to eq(amount_refunded)
   end
 
@@ -166,7 +166,7 @@ describe SmartCoin::Charge do
     charge_list = SmartCoin::Charge.list_all(params)
     expect(charge_list.object).to eq('list')
     expect(charge_list.count).to eq(3)
-    expect(charge_list.data).to have(3).items
+    expect(charge_list.data.size).to eq(3)
     expect(charge_list.data[0].class).to eq(SmartCoin::Charge)
   end
 end

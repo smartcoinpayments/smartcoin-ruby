@@ -1,29 +1,38 @@
-# Smartcoin
+Visit [Smartcoin](https://smartcoin.com.br/) to request an account.
 
-TODO: Write a gem description
+Getting Started
+===============
 
-## Installation
+Sample usage:
 
-Add this line to your application's Gemfile:
+```ruby
+SmartCoin.api_key('pk_live_e73e1d46a263fe')
+SmartCoin.api_secret('sk_live_6bef1b7867ecbf')
 
-    gem 'smartcoin'
+#Credit Card Charge
+card_params = {number:  4242424242424242,
+	              exp_month: 11,
+	              exp_year: 2017,
+	              cvc: '111',
+	              name: 'Arthur Granado'
+	            }
 
-And then execute:
+token = SmartCoin::Token.create(token_params)
+charge_params = { amount: 100, currency: 'brl', card: token.id, }
+charge = SmartCoin::Charge.create(charge_params)
+puts charge.to_json
 
-    $ bundle
+#Bank Slip Charge
+charge_params = {amount: 1000, currency: 'brl', type: 'bank_slip'}
+charge = SmartCoin::Charge.create(charge_params)
+puts charge.to_json
+```
 
-Or install it yourself as:
+Test
+====
 
-    $ gem install smartcoin
+To run test the suite:
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/smartcoin/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+```
+rspec ./test
+```

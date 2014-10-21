@@ -10,28 +10,28 @@ describe SmartCoin::ApiResource do
     method = :post
 
     params = {number:  4242424242424242,
-                    exp_month: 11,
+                    exp_month: 5,
                     exp_year: 2017,
                     cvc: 111,
-                    name: 'Arthur Granado'
+                    name: 'Doctor Who'
                   }
     response = SmartCoin::Token.api_request(url, method, params)
     expect(response['id']).to match(/tok_(.*)/)
     expect(response['object']).to eq('token')
     expect(response['card']['last4']).to eq('4242')
-    expect(response['card']['exp_month']).to eq(11)
+    expect(response['card']['exp_month']).to eq(5)
     expect(response['card']['exp_year']).to eq(2017)
-    expect(response['card']['name']).to eq('Arthur Granado')
+    expect(response['card']['name']).to eq('Doctor Who')
   end
 
   it 'should throw error' do
     url = "/v1/tokens"
     method = :post
 
-    params = {exp_month: 11,
+    params = {exp_month: 5,
               exp_year: 2017,
-              cvc: 111,
-              name: 'Arthur Granado'
+              cvc: '021',
+              name: 'Doctor Who'
     }
 
     expect{ SmartCoin::Token.api_request(url, method, params) }.to raise_error SmartCoin::SmartCoinError

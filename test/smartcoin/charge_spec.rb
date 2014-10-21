@@ -11,7 +11,7 @@ describe SmartCoin::Charge do
                     exp_month: 11,
                     exp_year: 2017,
                     cvc: '111',
-                    name: 'Arthur Granado'
+                    name: 'Doctor Who'
                   }
     token = SmartCoin::Token.create(token_params)
     charge_params = {
@@ -50,7 +50,7 @@ describe SmartCoin::Charge do
                     exp_month: 11,
                     exp_year: 2017,
                     cvc: '111',
-                    name: 'Arthur Granado'
+                    name: 'Doctor Who'
                   }
     token = SmartCoin::Token.create(token_params)
     charge_params = {
@@ -71,7 +71,7 @@ describe SmartCoin::Charge do
                     exp_month: 11,
                     exp_year: 2017,
                     cvc: '111',
-                    name: 'Arthur Granado'
+                    name: 'Doctor Who'
                   }
     token = SmartCoin::Token.create(token_params)
     charge_params = {
@@ -92,7 +92,7 @@ describe SmartCoin::Charge do
                     exp_month: 11,
                     exp_year: 2017,
                     cvc: '111',
-                    name: 'Arthur Granado'
+                    name: 'Doctor Who'
                   }
     token = SmartCoin::Token.create(token_params)
     charge_params = {
@@ -116,7 +116,7 @@ describe SmartCoin::Charge do
                     exp_month: 11,
                     exp_year: 2017,
                     cvc: '111',
-                    name: 'Arthur Granado'
+                    name: 'Doctor Who'
                   }
     token = SmartCoin::Token.create(token_params)
     charge_params = {
@@ -140,7 +140,7 @@ describe SmartCoin::Charge do
                     exp_month: 11,
                     exp_year: 2017,
                     cvc: '111',
-                    name: 'Arthur Granado'
+                    name: 'Doctor Who'
                   }
     token = SmartCoin::Token.create(token_params)
     charge_params = {

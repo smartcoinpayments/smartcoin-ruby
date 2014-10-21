@@ -12,7 +12,7 @@ describe SmartCoin::Card do
       exp_year: 2017,
       fingerprint: "8535531490d032bf2268c1b4e708655c0287e07017ea19ae79e704c831b27fa6",
       country: "BR",
-      name: "Arthur Granado",
+      name: "Doctor Who",
       address_line1: nil,
       address_line2: nil,
       address_city: nil,

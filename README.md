@@ -11,27 +11,27 @@ SmartCoin.api_secret('sk_test_86e4486a0078b2') #Troque as chaves do demo para as
 
 charge_params = { amount: 100, currency: 'brl', card: token.id, }
 charge = SmartCoin::Charge.create({
-						amount: 100,
-						currency: 'brl',
-						card: {
-							number:  4242424242424242,
-              exp_month: 11,
-              exp_year: 2017,
-              cvc: '041'
-	          }
-	       })
+	amount: 100,
+	currency: 'brl',
+	card: {
+		number:  4242424242424242,
+    exp_month: 11,
+    exp_year: 2017,
+    cvc: '041'
+  }
+})
 puts charge.to_json
 
 #Bank Slip Charge
 charge = SmartCoin::Charge.create({
-						amount: 1000, 
-						currency: 'brl', 
-						type: 'bank_slip'
-					})
+	amount: 1000, 
+	currency: 'brl', 
+	type: 'bank_slip'
+})
 puts charge.to_json
 ```
 
-Veja mais opções [aqui]().
+Veja os [testes](https://github.com/smartcoinpayments/smartcoin-ruby/blob/master/test/smartcoin/charge_spec.rb) para mais opções.
 
 
 #Teste

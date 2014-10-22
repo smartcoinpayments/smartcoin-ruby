@@ -1,9 +1,9 @@
 Visite [Smartcoin](https://smartcoin.com.br/) para cadastrar uma conta.
 
-#Getting Started
+#Vamos fazer
 ===============
 
-Sample usage:
+Exemplos de uso:
 
 ```ruby
 SmartCoin.api_key('pk_test_407d1f51a61756') #Troque as chaves do demo para as suas de test ou live

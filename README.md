@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/smartcoinpayments/smartcoin-ruby.svg?branch=master)](https://travis-ci.org/smartcoinpayments/smartcoin-ruby) [![Dependency Status](https://gemnasium.com/smartcoinpayments/smartcoin-ruby.svg)](https://gemnasium.com/smartcoinpayments/smartcoin-ruby)
+
 Visite [Smartcoin](https://smartcoin.com.br/) para cadastrar uma conta.
 
 #Vamos fazer

@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/smartcoinpayments/smartcoin-ruby.svg?branch=master)](https://travis-ci.org/smartcoinpayments/smartcoin-ruby) [![Dependency Status](https://gemnasium.com/smartcoinpayments/smartcoin-ruby.svg)](https://gemnasium.com/smartcoinpayments/smartcoin-ruby)
 
-Visite [Smartcoin](https://smartcoin.com.br/) para cadastrar uma conta.
+Visite <a href="https://smartcoin.com.br/" target="_blank">Smartcoin</a> para cadastrar uma conta.
 
 #Vamos fazer
 ===============
@@ -33,8 +33,7 @@ charge = SmartCoin::Charge.create({
 puts charge.to_json
 ```
 
-Veja os [testes](https://github.com/smartcoinpayments/smartcoin-ruby/blob/master/test/smartcoin/charge_spec.rb) para mais opções.
-
+Veja os <a href="https://github.com/smartcoinpayments/smartcoin-ruby/blob/master/test/smartcoin/charge_spec.rb" target="_blank">testes</a> para mais opções.
 
 #Teste
 ====

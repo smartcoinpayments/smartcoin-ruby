@@ -1,4 +1,4 @@
-module SmartCoin
+module Smartcoin
   module ApiOperations
     module Retrieve
       def retrieve(charge_id)

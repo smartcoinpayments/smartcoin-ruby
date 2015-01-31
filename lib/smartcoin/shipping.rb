@@ -1,4 +1,4 @@
-module SmartCoin
+module Smartcoin
   class Shipping
     BASE_SHIPPING_URL = 'https://shipping.smartcoin.com.br'
     SSL_BUNDLE_PATH = File.dirname(__FILE__) + '/../data/shipping-ssl-bundle.crt'
@@ -22,7 +22,7 @@ module SmartCoin
           rbody = JSON.parse(rbody)
           rbody = Util.symbolize_names(rbody)
 
-          raise SmartCoinError.new(rcode, rbody, rbody[:error], rbody[:error][:message])
+          raise SmartcoinError.new(rcode, rbody, rbody[:error], rbody[:error][:message])
         else
           raise e
         end

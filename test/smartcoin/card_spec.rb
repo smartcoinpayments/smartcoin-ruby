@@ -1,6 +1,6 @@
 require_relative '../rspec_helper'
 
-describe SmartCoin::Card do
+describe Smartcoin::Card do
 
   it 'should create a card object from hash' do
     card_json = {
@@ -21,7 +21,7 @@ describe SmartCoin::Card do
       address_country: nil
     }
     
-    card = SmartCoin::Card.create_from(card_json)
+    card = Smartcoin::Card.create_from(card_json)
     expect(card.id).to eq(card_json[:id])
     expect(card.object).to eq(card_json[:object])
     expect(card.last4).to eq(card_json[:last4])

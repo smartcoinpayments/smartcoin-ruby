@@ -1,4 +1,4 @@
-module SmartCoin
+module Smartcoin
   module ApiOperations
     module List
       def list_all(params)

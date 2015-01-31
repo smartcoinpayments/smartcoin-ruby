@@ -1,5 +1,5 @@
-module SmartCoin
-  class SmartCoinObject
+module Smartcoin
+  class SmartcoinObject
     @values
     def metaclass
       class << self; self; end

@@ -1,4 +1,4 @@
-module SmartCoin
+module Smartcoin
   module ApiResource
     BASE_URL = 'https://api.smartcoin.com.br'
     SSL_BUNDLE_PATH = File.dirname(__FILE__) + '/../data/ssl-bundle.crt'
@@ -19,7 +19,7 @@ module SmartCoin
         params = nil
       end
 
-      access_keys = SmartCoin.access_keys.split(':')
+      access_keys = Smartcoin.access_keys.split(':')
       api_key = access_keys[0]
       api_secret = access_keys[1]
         begin
@@ -39,7 +39,7 @@ module SmartCoin
             rbody = JSON.parse(rbody)
             rbody = Util.symbolize_names(rbody)
 
-            raise SmartCoinError.new(rcode, rbody, rbody[:error], rbody[:error][:message])
+            raise SmartcoinError.new(rcode, rbody, rbody[:error], rbody[:error][:message])
           else
             raise e
           end

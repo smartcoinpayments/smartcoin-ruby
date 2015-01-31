@@ -1,4 +1,4 @@
-module SmartCoin
-  class Refund < SmartCoinObject
+module Smartcoin
+  class Refund < SmartcoinObject
   end
 end

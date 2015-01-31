@@ -1,5 +1,5 @@
-module SmartCoin
-  class Charge < SmartCoinObject
+module Smartcoin
+  class Charge < SmartcoinObject
     include ApiResource
     include ApiOperations::Create
     include ApiOperations::Retrieve

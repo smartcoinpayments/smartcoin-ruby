@@ -1,4 +1,4 @@
-module SmartCoin
+module Smartcoin
   module ApiOperations
     module Update
       def update(smartcoin_object_id, url_sufix, params=nil)

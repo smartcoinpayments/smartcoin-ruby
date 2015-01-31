@@ -1,16 +1,16 @@
-module SmartCoin
+module Smartcoin
   class Util
     OBJECT_TYPES = {
-        'card' => SmartCoin::Card,
-        'charge' => SmartCoin::Charge,
-        'refund' => SmartCoin::Refund,
-        'fee' => SmartCoin::Fee,
-        'installment' => SmartCoin::Installment,
-        'Token' => SmartCoin::Token,
+        'card' => Smartcoin::Card,
+        'charge' => Smartcoin::Charge,
+        'refund' => Smartcoin::Refund,
+        'fee' => Smartcoin::Fee,
+        'installment' => Smartcoin::Installment,
+        'Token' => Smartcoin::Token,
     }
 
     def self.get_object_type(type)
-      object_type = SmartCoin::SmartCoinObject
+      object_type = Smartcoin::SmartcoinObject
       object_type = OBJECT_TYPES[type] if OBJECT_TYPES[type]
       object_type
     end

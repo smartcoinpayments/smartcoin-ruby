@@ -53,11 +53,23 @@ module Smartcoin
     end
 
     def serialize_params
-      []
+      [:card]
     end
 
     def initialize()
       @values = {}
+    end
+
+    def method_missing(name, *args)
+      if name.to_s.end_with? '='
+        name = name.to_s[0...-1].to_sym
+      end
+
+      if serialize_params.include? name
+        @values[name] = args[0]
+      else
+        raise NoMemoryError.new ("Cannot set #{name} on this object")
+      end
     end
 
     def to_hash

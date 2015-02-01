@@ -4,7 +4,7 @@ module Smartcoin
       def save
         params_to_update = {}
         self.serialize_params.each do |key|
-          params_to_update[key] = @values[key.to_s] if @values
+          params_to_update[key] = (@values[key] || @values[key.to_s]) if @values
         end
 
         update(self.id, nil, params_to_update)

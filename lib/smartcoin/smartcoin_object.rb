@@ -52,6 +52,10 @@ module Smartcoin
       self.name.split('::')[-1]
     end
 
+    def serialize_params
+      []
+    end
+
     def initialize()
       @values = {}
     end

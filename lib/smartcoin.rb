@@ -20,6 +20,7 @@ require "smartcoin/errors/smartcoin_error"
 require "smartcoin/shipping"
 require "smartcoin/plan"
 require "smartcoin/customer"
+require "smartcoin/subscription"
 
 module Smartcoin
   @@api_key = ''

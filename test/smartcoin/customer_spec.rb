@@ -47,7 +47,6 @@ describe Smartcoin::Customer do
   end
 
   it 'should list existing customers' do
-    skip('That API was not implemnted yet')
     customer_list = Smartcoin::Customer.list_all
     expect(customer_list.object).to eq('list')
     expect(customer_list.data.size).to be >= 1

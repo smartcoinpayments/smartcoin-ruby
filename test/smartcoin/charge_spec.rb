@@ -1,4 +1,4 @@
-require 'rspec'
+require_relative '../rspec_helper'
 
 describe Smartcoin::Charge do
   before(:each) do

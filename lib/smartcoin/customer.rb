@@ -6,5 +6,9 @@ module Smartcoin
     include ApiOperations::Update
     include ApiOperations::Delete
     include ApiOperations::List
+
+    def subscriptions
+      Smartcoin::Subscription.create_from({customer: self.id})
+    end
   end
 end

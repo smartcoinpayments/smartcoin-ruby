@@ -44,8 +44,12 @@ module Smartcoin
       end
     end
 
-    def self.get_url
+    def self.url
       "/v1/#{CGI.escape(class_name.downcase)}s"
+    end
+
+    def url
+      "#{self.class.url}/#{self.id}"
     end
 
     def self.class_name

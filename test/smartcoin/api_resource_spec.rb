@@ -1,8 +1,8 @@
 require_relative '../rspec_helper'
 
-describe SmartCoin::ApiResource do
+describe Smartcoin::ApiResource do
   before(:each) do
-    SmartCoin.api_key('pk_test_3ac0794848c339')
+    Smartcoin.api_key('pk_test_3ac0794848c339')
   end
 
   it 'call SmartCoin API' do
@@ -15,7 +15,7 @@ describe SmartCoin::ApiResource do
                     cvc: 111,
                     name: 'Doctor Who'
                   }
-    response = SmartCoin::Token.api_request(url, method, params)
+    response = Smartcoin::Token.api_request(url, method, params)
     expect(response['id']).to match(/tok_(.*)/)
     expect(response['object']).to eq('token')
     expect(response['card']['last4']).to eq('4242')
@@ -34,7 +34,7 @@ describe SmartCoin::ApiResource do
               name: 'Doctor Who'
     }
 
-    expect{ SmartCoin::Token.api_request(url, method, params) }.to raise_error SmartCoin::SmartCoinError
+    expect{ Smartcoin::Token.api_request(url, method, params) }.to raise_error Smartcoin::SmartcoinError
 
   end
 
@@ -43,7 +43,7 @@ describe SmartCoin::ApiResource do
     json_message = {error: {type: '', message: ''}}
     http_message = ''
     message = ''
-    smartcoin_error = SmartCoin::SmartCoinError.new(http_code, json_message, http_message, message)
+    smartcoin_error = Smartcoin::SmartcoinError.new(http_code, json_message, http_message, message)
     expect(smartcoin_error.http_status).to eq(http_code)
     expect(smartcoin_error.json_message).to eq(json_message)
     expect(smartcoin_error.http_message).to eq(http_message)

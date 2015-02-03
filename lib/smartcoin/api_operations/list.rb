@@ -1,8 +1,7 @@
-module SmartCoin
+module Smartcoin
   module ApiOperations
     module List
-      def list_all(params)
-        url = get_url
+      def list_all(params=nil)
         method = :get
         response = api_request(url, method, params)
         create_from(response)

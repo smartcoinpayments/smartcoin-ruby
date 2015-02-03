@@ -1,5 +1,5 @@
-module SmartCoin
-  class SmartCoinObject
+module Smartcoin
+  class SmartcoinObject
     @values
     def metaclass
       class << self; self; end
@@ -44,16 +44,36 @@ module SmartCoin
       end
     end
 
-    def self.get_url
+    def self.url
       "/v1/#{CGI.escape(class_name.downcase)}s"
+    end
+
+    def url
+      "#{self.class.url}/#{self.id}"
     end
 
     def self.class_name
       self.name.split('::')[-1]
     end
 
+    def serialize_params
+      [:card]
+    end
+
     def initialize()
       @values = {}
+    end
+
+    def method_missing(name, *args)
+      if name.to_s.end_with? '='
+        name = name.to_s[0...-1].to_sym
+      end
+
+      if serialize_params.include? name
+        @values[name] = args[0]
+      else
+        raise NoMemoryError.new ("Cannot set #{name} on this object")
+      end
     end
 
     def to_hash

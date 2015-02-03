@@ -1,5 +1,5 @@
-module SmartCoin
-  class Token < SmartCoinObject
+module Smartcoin
+  class Token < SmartcoinObject
     include ApiResource
 
     include ApiOperations::Create

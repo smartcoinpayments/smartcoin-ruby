@@ -1,4 +1,4 @@
-module SmartCoin
-  class Fee < SmartCoinObject
+module Smartcoin
+  class Fee < SmartcoinObject
   end
 end

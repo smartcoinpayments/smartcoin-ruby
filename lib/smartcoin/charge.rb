@@ -7,15 +7,13 @@ module Smartcoin
     include ApiOperations::List
 
     def capture(amount=nil)
-      url_sufix = '/capture'
       params = {amount: amount} if amount
-      update(self.id, url_sufix, params)
+      update(params, '/capture')
     end
 
     def refund(amount=nil)
-      url_sufix = '/refund'
       params = {amount: amount} if amount
-      update(self.id, url_sufix, params)
+      update(params, '/refund')
     end
   end
 end

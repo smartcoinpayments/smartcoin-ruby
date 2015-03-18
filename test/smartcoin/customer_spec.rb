@@ -14,7 +14,7 @@ describe Smartcoin::Customer do
   end
 
   it 'should retrieve a customer by id' do
-    customer_params = {email: "test_#{SecureRandom.hex(5)}"}
+    customer_params = {email: "test_#{SecureRandom.hex(5)}@domain.com"}
     customer = Smartcoin::Customer.create(customer_params)
     retrieved_customer = Smartcoin::Customer.retrieve(customer.id)
     expect(retrieved_customer.email).to eq(customer_params[:email])

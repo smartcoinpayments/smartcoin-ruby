@@ -2,8 +2,8 @@ require_relative '../rspec_helper'
 
 describe Smartcoin::Plan do
   before(:each) do
-    Smartcoin.api_key('pk_test_3ac0794848c339')
-    Smartcoin.api_secret('sk_test_8bec997b7a0ea1')
+    Smartcoin.api_key('pk_test_407d1f51a61756')
+    Smartcoin.api_secret('sk_test_86e4486a0078b2')
   end
 
   let(:plan_params) {plan_params = { id: "plan_#{SecureRandom.hex(5)}", amount: 1000, currency: 'brl', interval:'month', name: "Smartcoin Plan" }}

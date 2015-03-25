@@ -3,6 +3,7 @@ module Smartcoin
     include ApiResource
     include ApiOperations::Create
     include ApiOperations::Retrieve
+    include ApiOperations::Update
     include ApiOperations::Delete
     include ApiOperations::List
 
@@ -12,6 +13,10 @@ module Smartcoin
 
     def create_from(params)
       Smartcoin::Subscription.create_from(params)
+    end
+
+    def serialize_params
+      [:plan, :quantity]
     end
 
     def url

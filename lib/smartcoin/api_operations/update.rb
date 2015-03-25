@@ -4,6 +4,7 @@ module Smartcoin
       def save
         params_to_update = {}
         self.serialize_params.each do |key|
+          return if key.to_sym == :plan && ((@values[key] || @values[key.to_s]).is_a? Smartcoin::SmartcoinObject)
           params_to_update[key] = (@values[key] || @values[key.to_s]) if @values
         end
 
